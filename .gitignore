@@ -1,0 +1,19 @@
+# Node / frontend
+node_modules/
+dist/
+dist-ssr/
+*.log
+*.local
+
+# Python / backend
+*.py[cod]
+__pycache__/
+*.sqlite3
+venv/
+blog_env/
+*.env
+
+# OS / editor files
+.vscode/
+.idea/
+.DS_Store
