@@ -12,6 +12,7 @@ __pycache__/
 venv/
 blog_env/
 *.env
+db.sqlite3
 
 # OS / editor files
 .vscode/
