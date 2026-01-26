@@ -19,7 +19,9 @@ class LoginAPIView(APIView):
         if user:
             token, created = Token.objects.get_or_create(user=user)
             return Response({'token': token.key, 'username': user.username, 'message': 'Login Successful'}, status=status.HTTP_200_OK)
-        return Response({'error': 'Username or Password is incorrect'}, status=status.HTTP_401_UNAUTHORIZED)
+        elif User.objects.filter(username=request.data.get('username')).exists():
+            return Response({'error': 'Incorrect Password'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'error': 'User not found'}, status=status.HTTP_401_UNAUTHORIZED)
 
 class SignUpAPIView(generics.CreateAPIView):
     queryset = User.objects.all()
