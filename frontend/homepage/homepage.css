@@ -1,0 +1,375 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:wght@300;400;700&display=swap');
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:auto;
+    height: 50px;
+    background-color: antiquewhite;
+    border: 5px solid #474134;
+    margin:0;
+    padding: 8px;
+}
+.optionsIcon{
+    display: flex;
+    align-items: center;
+    margin:2px;
+    padding: 2px;
+}
+.optionsBtn{
+    border: none;
+    background-color: antiquewhite;
+}
+.optionsBtn:hover{
+    background-color: rgb(255, 246, 234);
+}
+.logoAndTitle{
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    left: 50%;
+}
+.logoIcon{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:2px;
+}
+.logoIconImg{
+    display: flex;
+    align-items: center;
+    width: 55px;
+    height:55px;
+}
+.title{
+    align-self: center;
+    padding:1px;
+}
+.titleText{
+    font-family: 'Inria Serif', serif;
+    font-weight: bold;
+    font-size: 42px;
+    color: #474134;
+}
+.containerHeader{
+    display:flex;
+    align-self: center;
+    justify-content: space-between;
+}
+.penIcon{
+    align-self: center;
+    margin-right: 5px;
+    padding: 2px;
+}
+.penBtn{
+    border: solid black;
+    border-radius: 5px;
+    background-color: antiquewhite;
+
+}
+.penBtn:hover {
+    background-color: rgb(255, 246, 234);
+}
+.bellIcon{
+    align-self: center;
+    margin: 5px;
+    padding: 2px;
+    }
+.bellBtn {
+    border: none;
+    background-color: antiquewhite;
+}
+.bellBtn:hover {
+    background-color: rgb(255, 246, 234);
+}
+.personHeaderIcon {
+    align-self: center;
+    margin: 5px;
+    padding: 2px;
+}
+
+.personHeaderBtn {
+    border: solid black;
+    background-color: antiquewhite;
+    border-radius: 50%;
+}
+
+.personHeaderBtn:hover {
+    background-color: rgb(255, 246, 234);
+}
+.layout{
+    display:flex;
+    align-items: stretch;
+    width: 100%;
+    min-height: 100vh;
+}
+.mainBody{
+    height: fit-content;
+    width:1000px;
+    align-self: stretch;
+    background-color: antiquewhite;
+    border-width: 0px 0px 5px 0px;
+    border-style: solid;
+    border-color: #474134;
+    margin: 0;
+    padding: 10px;
+
+}
+.sidebarLeft{
+    width:50px;
+    align-self: stretch;
+    background-color: antiquewhite;
+    border-width: 0px 0px 5px 5px;
+    border-style: solid;
+    border-color: #474134;
+    margin: 0;
+    padding: 10px;
+}
+.sidebarLeftIcons{
+    display: flex;
+    flex-direction: column;
+    gap:8px;
+
+}
+.homeIcon, .bookmarkIcon, .barchartIcon{
+    margin: 8px, 1px,8px,1px;
+    padding:2px;
+}
+.personBodyIcon{
+    margin: 5px;
+    padding: 2px;
+}
+.homeBtn, .bookmarkBtn,.barchartBtn,.group2Btn{
+    margin:10px 5px 10px 5px;
+    border: none;
+    background-color: antiquewhite;
+}
+.personBodyBtn{
+    background-color: antiquewhite;
+    border-radius: 50%;
+    border-width: 3px;
+    border-color: black;
+}
+.homeBtn:hover,.bookmarkBtn:hover,.barchartBtn:hover,.personBodyBtn:hover,.group2Btn:hover{
+    background-color: rgb(255, 246, 234);
+}
+.searchWrapper{
+    position:relative;
+    width:auto;
+    margin: 20px auto;
+}
+.searchIconInside{
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-40%);
+    opacity:0.5;
+}
+.searchbar{
+    padding: 8px;
+    margin: 20px 20px 15px 30px;
+    width: 900px;
+    height:40px;
+    border-radius: 35px;
+    font-family: 'inria-serif',serif;
+    border-color: #474134;
+    color: #474134;
+    background-color: antiquewhite;
+}
+.foryouAndTrending{
+    display: flex;
+    gap: 8px;
+}
+.foryou,.trending{
+    margin:15px 15px 15px 30px;
+    padding: 2px;
+    border: none;
+    background-color: antiquewhite;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Inria Serif', serif;
+}
+.foryou:hover,.trending:hover{
+    background-color:rgb(255, 246, 234) ;
+}
+.likeandcomment{
+    margin: 24px;
+    display: flex;
+    align-items: center;
+    gap:12px;
+}
+.likeBtn{
+    border: none;
+    background-color: antiquewhite;
+    height: 35px;
+    width: 35px;
+}
+.likeBtn:hover,.commentBtn:hover{
+    background-color:rgb(255, 246, 234) ;
+}
+.likeIcon{
+    display: flex;
+}
+.likes{
+    display: flex;
+    gap:20px;
+    align-items: center;
+}
+.likecount{
+    font-size: 20px;
+    font-family: 'Inria Serif', serif;
+}
+.comments{
+    display: flex;
+    align-items: center;
+}
+.commentBtn{
+    border: none;
+    background-color: antiquewhite;
+    height: 35px;
+    width: 35px;
+}
+.blogDetails{
+    display: flex;
+    width: auto;
+    height: 200px;
+    margin: 8px 12px 12px 30px;
+    padding:2px;
+    gap:20px;
+}
+.imageBlog{
+    border: 2px solid #474134;
+    width: 200px;
+    height: 200px;
+}
+.blogName,.blogSubheading,.blogAuthorName{
+    color: #474134;
+}
+.blogName{
+    font-size: 30px;
+    font-family: 'Inria Serif', serif;
+}
+.blogSubheading, .blogAuthorName{
+    font-size: 24px;
+    font-family: 'Inria Serif', serif;
+}
+
+.blogAuthorName{
+    text-decoration: underline;
+}
+.basicDetailsBlog{
+    margin-left:12px;
+}
+.timeRelatedandOthers{
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+    gap:15px;
+    padding:20px;
+}
+.timeRelated{
+    display: flex;
+    flex-direction: column;
+    gap:8px;
+}
+.others{
+    display: flex;
+    gap:8px;
+}
+.save,.star,.share{
+    display: flex;
+    align-items: center;
+    color:#474134;
+    border:none;
+    background-color: antiquewhite;
+}
+.save:hover,.star:hover,.share:hover{
+    background-color: rgb(255, 246, 234);
+}
+.readtime,.publishdate{
+    display:flex;
+    align-items: center;
+    gap:8px;
+    font-family: 'Inria Serif', serif;
+    color: #474134;
+
+}
+.sidebarRight{
+    align-self: stretch;
+    width: 200px;
+    background-color: antiquewhite;
+    border-width:0px 5px 5px 5px;
+    border-style:solid;
+    border-color: #474134;
+    margin: 0;
+    padding: 10px;
+}
+.recommendedHeadingDiv{
+    margin: 12px 4px 12px 4px;
+}
+.recommendedHeading{
+    font-size: 16px;
+    font-family: 'Inria Serif', serif;
+    color: #474134;
+}
+.buttonsRecommended{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    
+}
+.business,.travel,.tech,.food,.culture,.life{
+    border: none;
+    background-color: #474134;
+    color: antiquewhite;
+    border-radius: 15px;
+    width: 80px;
+    height:25px;
+    font-size: 15px;
+    font-family: 'Inria Serif', serif;
+}
+.business:hover,.travel:hover,.tech:hover,.food:hover,.culture:hover,.life:hover{
+    background-color: #60605e;
+}
+.authorLayout{
+    display: flex;
+    gap: 24px;
+}
+.authorIcon{
+    display: flex;
+    align-items: center;
+    gap:8px;
+}
+.authorIconImg{
+    display: flex;
+    align-items: center;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #474134;
+}
+.authorBtn{
+    border: none;
+    background-color: antiquewhite;
+}
+.authorBtn:hover{
+    background-color: rgb(255, 246, 234);
+}
+.authoursyouloveheadingdiv{
+    padding: 2px;
+    margin:18px 2px 4px 2px;
+}
+.authoursyouloveheading{
+    font-size: 18px;
+    padding: 2px;
+    margin: 8px;
+    font-family: 'Inria Serif', serif;
+    color: #474134;
+}
+.authorName{
+    display: flex;
+    text-decoration: underline;
+    align-items: center;
+    font-family: 'Inria Serif', serif;
+    color: #474134;
+}
