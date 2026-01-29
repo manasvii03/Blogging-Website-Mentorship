@@ -9,7 +9,8 @@ from rest_framework.views import APIView
 
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
-from .models import Favourites, Blog, Reading_List
+from posts.models import Blog
+from posts.serializers import BlogSerializer
 # Create your views here.
 
 class LoginAPIView(APIView):
@@ -30,39 +31,68 @@ class SignUpAPIView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-class FavouriteToggleAPIView(APIView):
+class LikeToggleAPIView(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def post(self, request, blog_id):
         try:
             blog = Blog.objects.get(id=blog_id)
-            favourite_relation = Favourites.objects.get(user=request.user, blog=blog)
+            user = request.user
 
-            if favourite_relation.exists():
-                favourite_relation.delete()
-                return Response({"message": "Removed from Favourites", "is_favorite": False}, status=status.HTTP_200_OK)
+            if user in blog.likes.all():
+                blog.likes.remove(user)
+                return Response({"message": "Unliked"}, status=status.HTTP_200_OK)
             else:
-                favourite_relation.create(user=request.user, blog=blog)
-                return Response({"message": "Added to Favourites", "is_favorite": True}, status=status.HTTP_201_CREATED)
+                blog.likes.add(user)
+                return Response({"message": "Liked"}, status=status.HTTP_201_CREATED)
         except Blog.DoesNotExist:
-            return Response({"error": "This blog no longer exists."}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"error": "Blog Not Found"}, status=status.HTTP_404_NOT_FOUND)
 
 
-class ReadingListAPIView(APIView):
+class BookmarkToggleAPIView(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def post(self, request, blog_id):
         try:
             blog = Blog.objects.get(id=blog_id)
-            list_relation = Reading_List.objects.get(user=request.user, blog=blog)
+            user = request.user
 
-            if list_relation.exists():
-                list_relation.delete()
-                return Response({"message": "Removed from Reading List", "in_reading_list": False}, status=status.HTTP_200_OK)
+            if user in blog.bookmarks.all():
+                blog.bookmarks.remove(user)
+                return Response({"message": "Removed from Bookmarks"}, status=status.HTTP_200_OK)
             else:
-                list_relation.create(user=request.user, blog=blog)
-                return Response({"message": "Added to Reading List", "in_reading_list": True}, status=status.HTTP_201_CREATED)
+                blog.bookmarks.add(user)
+                return Response({"message": "Added to Bookmarks"}, status=status.HTTP_201_CREATED)
         except Blog.DoesNotExist:
-            return Response({"error": "This blog no longer exists."}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"error": "Blog Not Found"}, status=status.HTTP_404_NOT_FOUND)
+
+
+class LikedBlogsAPIView(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+        liked_blogs = user.liked_blogs.all()
+        liked_data = BlogSerializer(liked_blogs, many=True).data
+
+        return Response({
+            'user': user.username,
+            'liked_blogs': liked_data,
+        })
+
+class BookmarkedBlogsAPIView(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+        bookmarked_blogs = user.bookmarked_blogs.all()
+        bookmarked_data = BlogSerializer(bookmarked_blogs, many=True).data
+
+        return Response({
+            'user': user.username,
+            'bookmarked_blogs': bookmarked_data,
+        })
