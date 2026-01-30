@@ -1,6 +1,7 @@
 import logo from "../assets/logo.svg";
 import penLeft from "../assets/penleft.png";
 import penRight from "../assets/penright.png";
+import "./AuthBox.css";
 
 function AuthBox({ tab, setTab }) {
   return (
