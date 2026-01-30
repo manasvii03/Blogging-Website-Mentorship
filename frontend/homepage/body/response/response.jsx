@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import comment from '../images/comment.svg';
 function Response(){
   const [count,setCount]=useState(0);
+  //const [liked, setLiked]=useStyat
   const handleLike=()=>{
     setCount(count+1);
   }
