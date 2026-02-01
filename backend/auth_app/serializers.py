@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from .models import Favourites
+from posts.serializers import BlogSerializer
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -13,3 +15,10 @@ class UserSerializer(serializers.ModelSerializer):
             password=validated_data['password']
         )
         return user
+
+class FavouritesSerializer(serializers.ModelSerializer):
+    blog = BlogSerializer(read_only=True)
+
+    class Meta:
+        model = Favourites
+        fields = ['id', 'blog', 'created_at']
