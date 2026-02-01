@@ -1,8 +1,8 @@
 import LeftSidebar from "./leftSidebar/leftSidebar.jsx";
 import RightSidebar from './rightSidebar/rightSidebar.jsx';
 import Searchbar from './searchbar.jsx';
-import BlogCard from './blog/blogcard.jsx';
-import Blog from './blog/blogdetails.jsx';
+//import BlogCard from './blog/blogcard.jsx';
+import BlogDetails from './blog/blogdetails.jsx';
 import ForyouTrending from './foryoutrending.jsx';
 function Body(){
     return(
@@ -14,7 +14,7 @@ function Body(){
             <div className="mainBody">
               <Searchbar/>
               <ForyouTrending/>
-              <BlogCard items={Blog}/>
+              <BlogDetails/>
             </div>
             <div className="sidebarRight">
               <RightSidebar/>

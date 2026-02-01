@@ -207,8 +207,11 @@
 .likeBtn:hover,.commentBtn:hover{
     background-color:rgb(255, 246, 234) ;
 }
-.likeIcon{
-    display: flex;
+.liked{
+    fill:#E05A4F;
+}
+.unliked{
+    fill:#474134;
 }
 .likes{
     display: flex;
@@ -216,7 +219,7 @@
     align-items: center;
 }
 .likecount{
-    font-size: 20px;
+    font-size: 25px;
     font-family: 'Inria Serif', serif;
 }
 .comments{
@@ -237,16 +240,19 @@
     padding:2px;
     gap:20px;
 }
+.blogCard{
+    display: flex;
+}
 .imageBlog{
     border: 2px solid #474134;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 .blogName,.blogSubheading,.blogAuthorName{
     color: #474134;
 }
 .blogName{
-    font-size: 30px;
+    font-size: 28px;
     font-family: 'Inria Serif', serif;
 }
 .blogSubheading, .blogAuthorName{

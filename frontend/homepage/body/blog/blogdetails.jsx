@@ -1,7 +1,23 @@
-import sampleImg1 from './blogImages/sampleImg1.jpeg';
-import sampleImg2 from './blogImages/sampleImg2.png';
-    const Blog=[
-        {id:1, blogName:"My Story Book", subheading:"everything about my life", authorName:"Samriddhi Mehrotra", image:sampleImg1, publishDate:"22 Feb 2025", readTime:"120 mins"},
-        {id:2, blogName:"kafka's greatest work", subheading:"everything about kaska's work", authorName:"franz kafka", image:sampleImg2, publishDate:"18 Jan 2026",readTime:"150 mins"}
-    ];
-export default Blog;
+import API from '../../baseURL/baseURL.jsx';
+import React, { useState, useEffect } from 'react';
+import BlogCard from './blogcard.jsx';
+function BlogDetails(){
+const [blog,setBlog]=useState([]);
+useEffect(()=>{
+ const fetchBlogs=async()=>{
+    try{
+      const response=await API.get('/blogs/');
+      setBlog(response.data);
+      console.log(response.data);
+    }
+    catch(err){
+      console.log(`error: ${err.message}`);
+    }
+ }
+ fetchBlogs();
+},[]);
+return(
+<BlogCard items={blog}/>
+);
+}
+export default BlogDetails;
