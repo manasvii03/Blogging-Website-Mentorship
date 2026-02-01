@@ -24,14 +24,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Connects the Posts App URLs
-    # This adds the 'api/' prefix to everything in posts/urls.py
     path('api/', include('posts.urls')), 
     
     # Connects the Auth App (Login/Signup)
     path('', include('auth_app.urls')),
 ]
 
-# DEVELOPER NOTE: Image Serving
-# This block is REQUIRED for the Frontend to see uploaded images.
+# This block allows the Frontend to see uploaded images during development
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
