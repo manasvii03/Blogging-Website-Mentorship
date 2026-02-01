@@ -3,42 +3,31 @@ import logo from "../assets/logo.svg";
 import penLeft from "../assets/penleft.png";
 import penRight from "../assets/penright.png";
 import "./AuthBox.css";
-import axios from "axios";
+import api from "../api";
 
-const AuthBox=({ tab, setTab })=> {
+function AuthBox({ tab, setTab }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const url =
-      tab === "login"
-        ? "http://127.0.0.1:8000/api/login/"
-        : "http://127.0.0.1:8000/api/signup/";
-
-    axios
-      .post(url, {
-        username: username,
-        password: password,
-      })
-      .then((response) => {
-        if (response.data.message){
-          setMessage(response.data.message);
-        } else {
-        setMessage(
-          tab === "login" ? "Login Successful" : "Signup Successful"
-        );}
-
-        if (tab === "login") {
-          localStorage.setItem("token", response.data.token);
-        }
-      })
-      .catch((error) => {
-        setMessage("Something went wrong");
-      });
+  const handleSubmit = async () => {
+    try {
+      if (tab === "signup") {
+        await api.post("signup/", { username, password });
+        setMessage("Signup successful! Now login.");
+        setTab("login");
+      } else {
+        const res = await api.post("login/", { username, password });
+        localStorage.setItem("token_"+Date.now(), res.data.token);
+        setMessage("Login successful!");
+      }
+    } catch (err) {
+      console.log(err.response?.data);
+      setMessage(JSON.stringify(err.response?.data));
+    }
   };
+
+
 
   return (
     <div className="card">
@@ -72,7 +61,7 @@ const AuthBox=({ tab, setTab })=> {
 
         <div className="form">
           <label>
-            {tab === "signup" ? "Create a Username:" : "Username:"}
+            {tab === "signup" ? "Create Username:" : "Username:"}
           </label>
           <input
             type="text"
@@ -81,7 +70,7 @@ const AuthBox=({ tab, setTab })=> {
           />
 
           <label>
-            {tab === "signup" ? "Create a Password:" : "Password:"}
+            {tab === "signup" ? "Create Password:" : "Password:"}
           </label>
           <input
             type="password"
@@ -91,7 +80,17 @@ const AuthBox=({ tab, setTab })=> {
 
           <button onClick={handleSubmit}>Let's Get Started</button>
 
-          {message && <p style={{ color: "white" }}>{message}</p>}
+          {message && (
+            <div style ={{ width:"100%",display:"flex",justifyContent:"center"}}>
+            <p style={{ 
+              color: "black", 
+              fontWeight: "bold",
+              fontSize:"48px",
+              textAlign:"center",
+             }}>{message}
+              </p>
+             </div>
+          )}
         </div>
 
         <img src={penRight} alt="pen" className="pen right" />
