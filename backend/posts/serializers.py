@@ -7,6 +7,7 @@ class BlogSerializer(serializers.ModelSerializer):
     read_time = serializers.ReadOnlyField()
     like_count = serializers.SerializerMethodField()
     author_username = serializers.ReadOnlyField(source='user.username')
+    created_at = serializers.DateTimeField(format="%b %d, %Y", read_only=True)
     
     # FRONTEND NOTE: Tags Format
     # - SEND: A list of strings
