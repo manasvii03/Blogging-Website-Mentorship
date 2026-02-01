@@ -33,42 +33,42 @@ class SignUpAPIView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-class LikeToggleAPIView(APIView):
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
+#class LikeToggleAPIView(APIView):
+#    authentication_classes = [TokenAuthentication]
+#    permission_classes = [IsAuthenticated]
+#
+#    def post(self, request, blog_id):
+#        try:
+#            blog = Blog.objects.get(id=blog_id)
+#            user = request.user
+#
+#            if user in blog.likes.all():
+#                blog.likes.remove(user)
+#                return Response({"message": "Unliked"}, status=status.HTTP_200_OK)
+#            else:
+#                blog.likes.add(user)
+#                return Response({"message": "Liked"}, status=status.HTTP_201_CREATED)
+#        except Blog.DoesNotExist:
+#            return Response({"error": "Blog Not Found"}, status=status.HTTP_404_NOT_FOUND)
 
-    def post(self, request, blog_id):
-        try:
-            blog = Blog.objects.get(id=blog_id)
-            user = request.user
 
-            if user in blog.likes.all():
-                blog.likes.remove(user)
-                return Response({"message": "Unliked"}, status=status.HTTP_200_OK)
-            else:
-                blog.likes.add(user)
-                return Response({"message": "Liked"}, status=status.HTTP_201_CREATED)
-        except Blog.DoesNotExist:
-            return Response({"error": "Blog Not Found"}, status=status.HTTP_404_NOT_FOUND)
-
-
-class BookmarkToggleAPIView(APIView):
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
-
-    def post(self, request, blog_id):
-        try:
-            blog = Blog.objects.get(id=blog_id)
-            user = request.user
-
-            if user in blog.bookmarks.all():
-                blog.bookmarks.remove(user)
-                return Response({"message": "Removed from Bookmarks"}, status=status.HTTP_200_OK)
-            else:
-                blog.bookmarks.add(user)
-                return Response({"message": "Added to Bookmarks"}, status=status.HTTP_201_CREATED)
-        except Blog.DoesNotExist:
-            return Response({"error": "Blog Not Found"}, status=status.HTTP_404_NOT_FOUND)
+#class BookmarkToggleAPIView(APIView):
+#    authentication_classes = [TokenAuthentication]
+#    permission_classes = [IsAuthenticated]
+#
+#    def post(self, request, blog_id):
+#        try:
+#            blog = Blog.objects.get(id=blog_id)
+#            user = request.user
+#
+#            if user in blog.bookmarks.all():
+#                blog.bookmarks.remove(user)
+#                return Response({"message": "Removed from Bookmarks"}, status=status.HTTP_200_OK)
+#            else:
+#                blog.bookmarks.add(user)
+#                return Response({"message": "Added to Bookmarks"}, status=status.HTTP_201_CREATED)
+#        except Blog.DoesNotExist:
+#            return Response({"error": "Blog Not Found"}, status=status.HTTP_404_NOT_FOUND)
 
 
 class LikedBlogsAPIView(APIView):
