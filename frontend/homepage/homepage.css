@@ -256,13 +256,10 @@
     font-family: 'Inria Serif', serif;
 }
 .blogSubheading, .blogAuthorName{
-    font-size: 24px;
+    font-size: 20px;
     font-family: 'Inria Serif', serif;
 }
 
-.blogAuthorName{
-    text-decoration: underline;
-}
 .basicDetailsBlog{
     margin-left:12px;
 }
@@ -273,6 +270,16 @@
     margin-right: 50px;
     gap:15px;
     padding:20px;
+}
+.blogCategory{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:25px;
+    width:60px;
+    border-radius: 15px;
+    background-color: #474134;
+    color:antiquewhite;
 }
 .timeRelated{
     display: flex;

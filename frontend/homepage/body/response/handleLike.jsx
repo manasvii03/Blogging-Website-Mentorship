@@ -23,7 +23,7 @@ function Like(){
     return(
           <div className="likes">
            <div className="likeIcon">
-             <button className="likeBtn" onClick={handleLike} ><img className="likestatus" src={heart} alt="heart" height={30} width={30}/></button>
+             <button className="likeBtn" onClick={handleLike} ><img className="likestatus" src={heart} alt="heart" height={30} width={30} style={{ filter: liked ? "invert(23%) sepia(96%) saturate(7461%) hue-rotate(357deg)" : "none" }}/></button>
            </div>
             <div className="likecount">
               {count}
