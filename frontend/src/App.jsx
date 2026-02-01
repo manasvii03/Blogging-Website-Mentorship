@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AuthBox from "./components/Authbox";
+import AuthBox from "./components/AuthBox";
 
 function App() {
   const [tab, setTab] = useState("signup");
