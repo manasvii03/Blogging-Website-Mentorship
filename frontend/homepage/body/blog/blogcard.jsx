@@ -1,8 +1,8 @@
 import Response from '../response/response.jsx';
 import calender from '../images/Calendar.svg';
 import clock from '../images/Clock.svg';
-import save from '../images/save.svg';
-import star from '../images/Star.svg';
+import HandleSave from './handleSave.jsx'
+import HandleStar from './handleStar.jsx'
 import share from '../images/Send.svg';
 function BlogCard({items}){
     return(
@@ -25,13 +25,13 @@ function BlogCard({items}){
                   created_at}</b></p></div>
              </div>
              <div className="others">
-                <div className="save"><button className="save"><img src={save} alt="save" width={30} height={30}/></button></div>
-                <div className="star"><button className="star"><img src={star} alt="star" width={30} height={30}/></button></div>
+                <HandleSave blogId={blog.id}/>
+                <HandleStar blogId={blog.id}/>
                 <div className="share"><button className="share"><img src={share} alt="share" width={30} height={30}/></button></div>
              </div>
             </div>
          </div>
-        <Response/>
+        <Response blog={blog}/>
         </div>
         ))};
         </>

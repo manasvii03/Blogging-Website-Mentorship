@@ -209,9 +209,40 @@
 }
 .liked{
     fill:#E05A4F;
+    stroke:#474134;
+    stroke-width: 5px;
 }
-.unliked{
-    fill:#474134;
+.notliked{
+    stroke:#474134;
+    stroke-width: 5px;
+}
+.saved{
+    fill:#60605e;
+    stroke: #474134;
+    stroke-width: 7px;
+}
+.notsaved{
+    stroke: #474134;
+    stroke-width: 7px;
+}
+.starred{
+    display: flex;
+    justify-content: center;
+    fill: #f0e808;
+    stroke: #474134;
+    stroke-width: 4px;
+}
+.notstarred{
+    stroke: #474134;
+    stroke-width: 4px;
+}
+.starBtn2 {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
 }
 .likes{
     display: flex;
@@ -293,7 +324,7 @@
 .save,.star,.share{
     display: flex;
     align-items: center;
-    color:#474134;
+    justify-content: center;
     border:none;
     background-color: antiquewhite;
 }
