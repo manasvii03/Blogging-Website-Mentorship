@@ -15,8 +15,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+# from django.urls import path, include, include 
 
 urlpatterns = [
+    # Admin Panel
     path('admin/', admin.site.urls),
+
+    # Connects the Posts App URLs
+    # This adds the 'api/' prefix to everything in posts/urls.py
+    path('api/', include('posts.urls')), 
+    
+    # Connects the Auth App (Login/Signup)
+    path('', include('auth_app.urls')),
 ]
+
+# DEVELOPER NOTE: Image Serving
+# This block is REQUIRED for the Frontend to see uploaded images.
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
